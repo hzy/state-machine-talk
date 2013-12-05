@@ -184,15 +184,15 @@ class Article(models.Model):
     state = FSMField(default='unfinished')
     text = models.TextField()
     title = models.CharField()
-    
+
     @transition(source='unfinished', target='submitted')
     def submit(self):
         pass
-        
+
     @transition(source='submitted', target='unfinished')
     def request_changes(self):
         pass
-        
+
     @transition(source='submitted', target='published')
     def publish(self):
         pass
