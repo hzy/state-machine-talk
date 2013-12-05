@@ -18,7 +18,7 @@
       }
       h1 { font-size: 6em; }
       h2 { font-size: 4.5em; }
-      h3 { font-size: 3em; }
+      h3 { font-size: 2.5em; }
       .footnote {
         position: absolute;
         bottom: 3em;
@@ -73,10 +73,10 @@
       }
 
       /* in-slide styles */
-      .points h2 {
+      .points > * {
         margin-top: 10px;
       }
-      .points h2:first-child {
+      .points >*:first-child {
         margin-top: 40px;
       }
 
@@ -109,7 +109,13 @@ name: title
 
 ---
 
->Finite-state machines are a computational model of a machine that can be in a number of states. It can only be in one state at a time. It can change states between states via a transition.
+>A finite-state machine is a model of computation that represents a machine
+that can exist in many states.
+
+.points[
+###- Machine can only exist in one state at a time
+###- Changing from one state to another is referred to as a 'transition'
+]
 
 ---
 
