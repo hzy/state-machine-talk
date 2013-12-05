@@ -72,6 +72,14 @@
         line-height: 0.8em;
       }
 
+      /* in-slide styles */
+      .points h2 {
+        margin-top: 10px;
+      }
+      .points h2:first-child {
+        margin-top: 40px;
+      }
+
       /* slide specific */
       #slide-title h2 {
         font-size: 3em;
@@ -114,14 +122,18 @@ name: title
 ---
 
 # States
-## - Locked
-## - Unlocked
+.points[
+  ##- Locked
+  ##- Unlocked
+]
 
 ---
 
 # Transitions
-## - Lock
-## - Unlock
+.points[
+##- Lock
+##- Unlock
+]
 
 ---
 
@@ -134,19 +146,20 @@ name: title
 ---
 
 # States
-## - Unfinished
-## - Submitted
-## - Published
+.points[
+##- Unfinished
+##- Submitted
+##- Published
+]
 
 ---
 
 # Transitions
-## - Submit
-### - Unfinished -> Submitted
-## - Request Changes
-### - Submitted -> Unfinished
-## - Publish
-### - Submitted -> Published
+.points[
+##- Submit
+##- Request Changes
+##- Publish
+]
 
 ---
 
