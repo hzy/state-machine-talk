@@ -130,8 +130,37 @@ class: center, middle
 ---
 
 # Django FSM
-...basic code example of how it works...
+##> [github.com/kmmbvnr/django-fsm](https://github.com/kmmbvnr/django-fsm)
 
+---
+
+```python
+from django_fsm.db.fields import FSMField, transition
+from django.db import models
+
+class Article(models.Model):
+    state = FSMField(default='unfinished')
+    text = models.TextField()
+    title = models.CharField()
+    
+    @transition(source='unfinished', target='submitted')
+    def submit(self):
+        pass
+        
+    @transition(source='submitted', target='unfinished')
+    def request_changes(self):
+        pass
+        
+    @transition(source='submitted', target='published')
+    def publish(self):
+        pass
+```
+
+---
+
+```python
+article = Article.objects.create()
+```
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
     </script>
