@@ -16,7 +16,7 @@
         font-weight: 400;
         margin-bottom: 0;
       }
-      h1 { font-size: 4em; }
+      h1 { font-size: 6em; }
       h2 { font-size: 2em; }
       h3 { font-size: 1.6em; }
       .footnote {
@@ -35,7 +35,14 @@
         -web-border-radius: 5px;
         background: #e7e8e2;
         border-radius: 5px;
-        font-size: 16px;
+        font-size: 20px;
+      }
+      blockquote {
+        font-size: 35px;
+        border-left: 7px solid grey;
+        padding-left: 30px;
+        line-height: 140%;
+        color: #222;
       }
       .pull-left {
         float: left;
@@ -64,15 +71,29 @@
         color: #f3f3f3;
         line-height: 0.8em;
       }
+
+      /* slide specific */
+      #slide-title h2 {
+        font-size: 3em;
+        line-height:100%;
+      }
+      #slide-title h2:nth-child(3), #slide-title h2:nth-child(4) {
+        margin-top: 10px;
+      }
+      #slide-title h2:nth-child(4) {
+        color: #f36031;
+      }
     </style>
   </head>
   <body>
     <textarea id="source">
 
-class: center, middle
+name: title
 
 # Finite State Machines in Django
->- Jacob Haslehurst
+## Jacob Haslehurst
+## @hzy_
+## Gizmag
 
 ---
 
