@@ -224,7 +224,70 @@ article.state
 article.publish()
 article.state
 # 'published'
+```
 
+---
+
+# What if we want to know state history?
+
+---
+
+# Django FSM Log
+### [github.com/gizmag/django-fsm-log](https://github.com/gizmag/django-fsm-log)
+
+---
+
+# Installation
+<br>
+```bash
+pip install django-fsm-log
+
+python manage.py migrate django_fsm_log
+```
+
+---
+
+# Automatic
+
+## Uses Signals
+
+---
+
+# Use Cases
+.points[
+##- Audit Log
+##- Activity Stream
+]
+
+---
+
+```python
+from articles.models import Article
+from django_fsm_log.models import StateLog
+
+article = Article.objects.create(
+    title='My Great Article',
+    text='Lorem ipsum dolor sit amet.',
+)
+article.submit()
+article.request_changes()
+article.publish()
+
+StateLog.objects.for_(article)
+# [
+#  <StateLog: StateLog object>,
+#  <StateLog: StateLog object>,
+#  <StateLog: StateLog object>
+# ]
+
+StateLog.objects.for_(article).first().__dict__
+# {'by_id': None,
+#  'content_type_id': 33,
+#  'id': 3,
+#  'object_id': 4,
+#  'state': u'submitted',
+#  'timestamp': datetime.datetime(...),
+#  'transition': u'submit'}
 ```
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
