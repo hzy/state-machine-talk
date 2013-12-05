@@ -214,15 +214,15 @@ article = Article.objects.create(
     text='Lorem ipsum dolor sit amet.',
 )
 
-article.status
+article.state
 # 'unfinished'
 
 article.submit()
-article.status
+article.state
 # 'submitted'
 
 article.publish()
-article.status
+article.state
 # 'published'
 
 ```
