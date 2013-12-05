@@ -195,21 +195,36 @@ class Article(models.Model):
 
     @transition(source='unfinished', target='submitted')
     def submit(self):
-        pass
+        # alert editor
 
     @transition(source='submitted', target='unfinished')
     def request_changes(self):
-        pass
+        # alert writer
 
     @transition(source='submitted', target='published')
     def publish(self):
-        pass
+        # clear caches, post to twitter & facebook
 ```
 
 ---
 
 ```python
-article = Article.objects.create()
+article = Article.objects.create(
+    title='My Great Article',
+    text='Lorem ipsum dolor sit amet.',
+)
+
+article.status
+# 'unfinished'
+
+article.submit()
+article.status
+# 'submitted'
+
+article.publish()
+article.status
+# 'published'
+
 ```
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
