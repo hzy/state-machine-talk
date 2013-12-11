@@ -82,6 +82,9 @@
       .points >*:first-child {
         margin-top: 40px;
       }
+      .big-code code {
+        font-size: 40px;
+      }
 
       /* slide specific */
       #slide-title h2 {
@@ -204,6 +207,57 @@ pip install django-fsm
 ```
 
 ---
+
+.big-code[
+```python
+class Article(models.Model):
+  state = FSMField(
+    default='unfinished'
+  )
+```
+]
+
+---
+.big-code[
+```python
+class Article(models.Model):
+  state = FSMField(
+    default='unfinished',
+    protected=True
+  )
+```
+]
+
+---
+
+.big-code[
+```python
+class Article(models.Model):
+  @transition(
+    source='unfinished',
+    target='submitted'
+  )
+  def submit(self):
+    pass
+```
+]
+
+---
+.big-code[
+```python
+class Article(models.Model):
+  @transition(
+    source='unfinished',
+    target='submitted',
+    save=True
+  )
+  def submit(self):
+    pass
+```
+]
+
+---
+
 ```python
 from django_fsm.db.fields import FSMField, transition
 from django.db import models
