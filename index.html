@@ -362,6 +362,22 @@ python manage.py migrate django_fsm_log
 
 ---
 
+# Logging 'by'
+.big-code[
+```python
+class Article(models.Model):
+  @fsm_log_by
+  @transition(
+    source='unfinished',
+    target='submitted'
+  )
+  def submit(self, by=None):
+    pass
+```
+]
+
+---
+
 # Use Cases
 .points[
 ##- Audit Log
