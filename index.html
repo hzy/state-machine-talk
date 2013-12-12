@@ -265,6 +265,32 @@ class Article(models.Model):
 
 ---
 
+# Conditions
+.big-code[
+```python
+def check_has_title(article):
+  return len(article.title) >= 1
+```
+]
+
+---
+
+# Conditions (Cont.)
+.big-code[
+```python
+class Article(models.Model):
+  @transition(
+    source='unfinished',
+    target='submitted',
+    conditions=[check_has_title],
+  )
+  def submit(self):
+    pass
+```
+]
+
+---
+
 ```python
 from django_fsm.db.fields import FSMField, transition
 from django.db import models
